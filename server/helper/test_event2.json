@@ -1,0 +1,23 @@
+{
+    "eventName": "Group3 Music Fest",
+    "eventAbout": "Music Festival for all.",
+    "venue": "SM Mall of Asia",
+    "imageUrl": "https://res.cloudinary.com/delt3mvc1/image/upload/v1701328687/project-group3/Yellow_Music_Festival_guurye.png",
+    "eventDate": "2024-02-04T19:00:00Z",
+    "price": 100,
+    "seats": [{
+        "location": "front",
+        "count": 10,
+        "price": 1000
+    },
+    {
+        "location": "center",
+        "count": 50,
+        "price": 500
+    },
+    {
+        "location": "back",
+        "count": 100,
+        "price": 250
+    }]
+}
