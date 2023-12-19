@@ -47,7 +47,7 @@ const UpdateEvent = () => {
   const loadEvent = async () => {
     try {
       const data = await fetch(
-        `http://localhost:8080/api/v1/events/${eventId}`,
+        `https://server-etickets.onrender.com/api/v1/events/${eventId}`,
         {
           method: 'GET',
         }
@@ -110,7 +110,7 @@ const UpdateEvent = () => {
         formData.eventDate = utcDate.toISOString();
 
         const data = await fetch(
-          `http://localhost:8080/api/v1/events/${eventId}`,
+          `https://server-etickets.onrender.com/api/v1/events/${eventId}`,
           {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
@@ -167,7 +167,7 @@ const UpdateEvent = () => {
 
   const handleDelete = async (id) => {
     try {
-      await fetch(`http://localhost:8080/api/v1/events/${id}`, {
+      await fetch(`https://server-etickets.onrender.com/api/v1/events/${id}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({}),

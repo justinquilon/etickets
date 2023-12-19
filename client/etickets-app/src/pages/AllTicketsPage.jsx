@@ -27,8 +27,9 @@ function AllTicketsPage() {
   console.log('Account ID: ' + accountId);
   console.log('is Admin?' + isAdmin);
   const loadUrl =
-    'http://localhost:8080/api/v1/accounts/load/65670dec3c5e1ddebcfec357';
-  const eventsUrl = 'http://localhost:8080/api/v1/events?limit=30';
+    'https://server-etickets.onrender.com/api/v1/accounts/load/65670dec3c5e1ddebcfec357';
+  const eventsUrl =
+    'https://server-etickets.onrender.com/api/v1/events?limit=30';
   const getLoad = getLoadData(loadUrl);
   const getEventsArray = getEventsData(eventsUrl);
 

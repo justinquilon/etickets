@@ -51,7 +51,8 @@ const UserAccountPage = () => {
   const [tickets, setTickets] = useState([]);
   const [modalShow, setModalShow] = useState(false);
   const navigate = useNavigate();
-  const loadUrl = 'http://localhost:8080/api/v1/accounts/load/' + accountId;
+  const loadUrl =
+    'https://server-etickets.onrender.com/api/v1/accounts/load/' + accountId;
   useEffect(() => {
     if (!accountId) {
       return;
@@ -74,7 +75,7 @@ const UserAccountPage = () => {
   const loadTickets = async () => {
     try {
       const data = await fetch(
-        `http://localhost:8080/api/v1/tickets/${accountId}`,
+        `https://server-etickets.onrender.com/api/v1/tickets/${accountId}`,
         {
           method: 'GET',
         }
@@ -94,7 +95,7 @@ const UserAccountPage = () => {
 
   const handleDelete = async (id) => {
     try {
-      await fetch(`http://localhost:8080/api/v1/tickets/${id}`, {
+      await fetch(`https://server-etickets.onrender.com/api/v1/tickets/${id}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -135,7 +136,6 @@ const UserAccountPage = () => {
             </tr>
           </thead>
           <tbody>
-
             {tickets.map((item) => (
               <tr key={item._id}>
                 <td>{item.eventName}</td>
@@ -144,16 +144,18 @@ const UserAccountPage = () => {
                 <td>{item.venue}</td>
                 <td>{item.seat}</td>
                 <td>
-                  <Button variant="light" onClick={() => handleDelete(item._id)}>
+                  <Button
+                    variant="light"
+                    onClick={() => handleDelete(item._id)}
+                  >
                     Delete
                   </Button>
                 </td>
               </tr>
             ))}
-
           </tbody>
         </Table>
-    </Fade>
+      </Fade>
     </div>
   );
 };

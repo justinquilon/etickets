@@ -75,11 +75,14 @@ const AddEventPage = () => {
         );
         formData.eventDate = utcDate.toISOString();
 
-        const data = await fetch(`http://localhost:8080/api/v1/events/`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData),
-        });
+        const data = await fetch(
+          `https://server-etickets.onrender.com/api/v1/events/`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData),
+          }
+        );
 
         const response = await data.json();
 

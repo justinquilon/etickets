@@ -36,12 +36,12 @@ function EventFilter() {
   console.log(exactDate.format('YYYY-MM-DD'));
   console.log(eventsFiltered);
   const filterByNameUrl =
-    'http://localhost:8080/api/v1/events/find/name/' + eventName;
+    'https://server-etickets.onrender.com/api/v1/events/find/name/' + eventName;
   const filterByDate =
-    'http://localhost:8080/api/v1/events/find/date/' +
+    'https://server-etickets.onrender.com/api/v1/events/find/date/' +
     exactDate.format('YYYY-MM-DD');
   const filterByDateRange =
-    'http://localhost:8080/api/v1/events/find/date-range/' +
+    'https://server-etickets.onrender.com/api/v1/events/find/date-range/' +
     initialDate.format('YYYY-MM-DD') +
     '/' +
     finalDate.format('YYYY-MM-DD');

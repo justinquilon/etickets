@@ -26,7 +26,8 @@ function EventPage() {
   const [eventDetails, setEventDetails] = useState({});
   const [tickets, setTickets] = useState([]);
   const [counter, setCounter] = useState(0);
-  const eventDetailsUrl = 'http://localhost:8080/api/v1/events/' + eventId;
+  const eventDetailsUrl =
+    'https://server-etickets.onrender.com/api/v1/events/' + eventId;
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -52,15 +53,18 @@ function EventPage() {
     if (!userId) {
       navigate('/login');
     } else {
-      const ticketAPI = await fetch('http://localhost:8080/api/v1/tickets', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          eventId: eventId,
-          seat: event.target.value,
-          accountId: accountId,
-        }),
-      });
+      const ticketAPI = await fetch(
+        'https://server-etickets.onrender.com/api/v1/tickets',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            eventId: eventId,
+            seat: event.target.value,
+            accountId: accountId,
+          }),
+        }
+      );
       const response = await ticketAPI.json();
       if (response.message === 'Ticket created') {
         // Trigger update in useEffect
@@ -68,7 +72,7 @@ function EventPage() {
         const newCounter = counter + 1;
         setCounter(newCounter);
       } else {
-        toast.error('Failed to purchase ticket')
+        toast.error('Failed to purchase ticket');
       }
     }
   };
